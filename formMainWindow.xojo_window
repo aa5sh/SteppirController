@@ -1278,7 +1278,6 @@ Begin DesktopWindow formMainWindow
    End
    Begin TCPSocket SteppirSocket1
       Address         =   ""
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Port            =   0
@@ -1305,7 +1304,6 @@ Begin DesktopWindow formMainWindow
       DataSetReady    =   False
       DataTerminalReady=   False
       DTR             =   False
-      Enabled         =   True
       Handle          =   0
       Index           =   -2147483648
       LockedInPosition=   False
@@ -1521,6 +1519,7 @@ End
 		    
 		  Elseif Preferences.SteppirComType = 1 and Len(Preferences.SteppirSerialPort) > 0 then
 		    SteppirSerial1.Device = SerialDevice.WithName(Preferences.SteppirSerialPort)
+		    SteppirSerial1.Baud = val(Preferences.SteppirSerialBaud)
 		    Try
 		      SteppirSerial1.Connect
 		    Catch error As IOException
@@ -1602,6 +1601,12 @@ End
 		  end if
 		End Sub
 	#tag EndMethod
+
+
+	#tag Note, Name = Sign and Notarize
+		
+		
+	#tag EndNote
 
 
 	#tag Property, Flags = &h0
