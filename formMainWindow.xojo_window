@@ -1324,6 +1324,7 @@ End
 	#tag Event
 		Sub Opening()
 		  tsSteppirLast = new DateTime(1970,1,1,1,1,1)
+		  StartUP
 		End Sub
 	#tag EndEvent
 
@@ -1515,7 +1516,7 @@ End
 		  
 		  If Preferences.SteppirComType = 0 and len(Preferences.SteppirIP) > 0Then
 		    SteppirSocket1.Address= Preferences.SteppirIP
-		    SteppirSocket1.Port = Preferences.SteppirPort
+		    SteppirSocket1.Port = Val(Preferences.SteppirPort)
 		    SteppirSocket1.Connect
 		    
 		  Elseif Preferences.SteppirComType = 1 and Len(Preferences.SteppirSerialPort) > 0 then

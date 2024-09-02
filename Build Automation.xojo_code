@@ -7,7 +7,7 @@
 				Begin BuildProjectStep Build
 				End
 				Begin SignProjectStep Sign
-				  DeveloperID=
+				  DeveloperID=Developer ID Application: charles morgan (QMAS7T7E4L)
 				End
 			End
 			Begin BuildStepList Windows
