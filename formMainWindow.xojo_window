@@ -1278,6 +1278,7 @@ Begin DesktopWindow formMainWindow
    End
    Begin TCPSocket SteppirSocket1
       Address         =   ""
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Port            =   0
@@ -1296,11 +1297,21 @@ Begin DesktopWindow formMainWindow
    Begin SerialConnection SteppirSerial1
       Baud            =   13
       Bits            =   3
+      BytesAvailable  =   0
+      BytesLeftToSend =   0
+      ClearToSend     =   False
       CTS             =   False
+      DataCarrierDetect=   False
+      DataSetReady    =   False
+      DataTerminalReady=   False
       DTR             =   False
+      Enabled         =   True
+      Handle          =   0
       Index           =   -2147483648
       LockedInPosition=   False
       Parity          =   0
+      RequestToSend   =   False
+      RingIndicator   =   False
       Scope           =   0
       StopBit         =   0
       TabPanelIndex   =   0
@@ -1502,13 +1513,19 @@ End
 		Sub StartUP()
 		  tsSteppirLast = new datetime(1970,1,1,1,1,1)
 		  
-		  If Preferences.SteppirComType = 0 Then
+		  If Preferences.SteppirComType = 0 and len(Preferences.SteppirIP) > 0Then
 		    SteppirSocket1.Address= Preferences.SteppirIP
 		    SteppirSocket1.Port = Preferences.SteppirPort
 		    SteppirSocket1.Connect
 		    
-		  Else
-		    
+		  Elseif Preferences.SteppirComType = 1 and Len(Preferences.SteppirSerialPort) > 0 then
+		    SteppirSerial1.Device = SerialDevice.WithName(Preferences.SteppirSerialPort)
+		    Try
+		      SteppirSerial1.Connect
+		    Catch error As IOException
+		      Beep
+		      MessageBox("The selected serial device could not be opened.")
+		    End Try
 		  End if
 		  
 		  
@@ -2137,7 +2154,7 @@ End
 		Group="Behavior"
 		InitialValue=""
 		Type="String"
-		EditorType=""
+		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Frequency"
@@ -2153,7 +2170,7 @@ End
 		Group="Behavior"
 		InitialValue=""
 		Type="String"
-		EditorType=""
+		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NewDir"
@@ -2161,7 +2178,7 @@ End
 		Group="Behavior"
 		InitialValue=""
 		Type="String"
-		EditorType=""
+		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TrackFlag"
