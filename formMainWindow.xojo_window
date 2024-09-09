@@ -778,7 +778,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   260
+      Left            =   266
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -828,7 +828,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   260
+      Left            =   266
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -878,7 +878,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   260
+      Left            =   266
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -928,7 +928,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   260
+      Left            =   266
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
