@@ -10,7 +10,7 @@ Begin DesktopWindow formMainWindow
    HasFullScreenButton=   False
    HasMaximizeButton=   True
    HasMinimizeButton=   True
-   Height          =   221
+   Height          =   189
    ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -23,7 +23,7 @@ Begin DesktopWindow formMainWindow
    Title           =   "Steppir Controller"
    Type            =   0
    Visible         =   True
-   Width           =   396
+   Width           =   334
    Begin DesktopGroupBox GroupBox1
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -32,10 +32,10 @@ Begin DesktopWindow formMainWindow
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   60
+      Height          =   86
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   8
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -46,11 +46,11 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   91
+      Top             =   61
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   289
+      Width           =   194
       Begin DesktopBevelButton bb40
          Active          =   False
          AllowAutoDeactivate=   True
@@ -77,7 +77,7 @@ Begin DesktopWindow formMainWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   27
+         Left            =   89
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -90,7 +90,7 @@ Begin DesktopWindow formMainWindow
          TabPanelIndex   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   121
+         Top             =   87
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -127,7 +127,7 @@ Begin DesktopWindow formMainWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   62
+         Left            =   124
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -140,7 +140,7 @@ Begin DesktopWindow formMainWindow
          TabPanelIndex   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   121
+         Top             =   87
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -177,7 +177,7 @@ Begin DesktopWindow formMainWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   97
+         Left            =   159
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -190,7 +190,7 @@ Begin DesktopWindow formMainWindow
          TabPanelIndex   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   121
+         Top             =   87
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -227,7 +227,7 @@ Begin DesktopWindow formMainWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   132
+         Left            =   18
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -240,7 +240,7 @@ Begin DesktopWindow formMainWindow
          TabPanelIndex   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   121
+         Top             =   115
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -277,7 +277,7 @@ Begin DesktopWindow formMainWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   167
+         Left            =   54
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -290,7 +290,7 @@ Begin DesktopWindow formMainWindow
          TabPanelIndex   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   121
+         Top             =   115
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -327,7 +327,7 @@ Begin DesktopWindow formMainWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   202
+         Left            =   89
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -340,7 +340,7 @@ Begin DesktopWindow formMainWindow
          TabPanelIndex   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   121
+         Top             =   115
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -377,7 +377,7 @@ Begin DesktopWindow formMainWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   237
+         Left            =   124
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -390,7 +390,7 @@ Begin DesktopWindow formMainWindow
          TabPanelIndex   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   121
+         Top             =   115
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -427,7 +427,7 @@ Begin DesktopWindow formMainWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   272
+         Left            =   159
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -440,7 +440,107 @@ Begin DesktopWindow formMainWindow
          TabPanelIndex   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   121
+         Top             =   115
+         Transparent     =   False
+         Underline       =   False
+         Value           =   False
+         Visible         =   True
+         Width           =   31
+         _mIndex         =   0
+         _mInitialParent =   ""
+         _mName          =   ""
+         _mPanelIndex    =   0
+      End
+      Begin DesktopBevelButton bb60
+         Active          =   False
+         AllowAutoDeactivate=   True
+         AllowFocus      =   True
+         AllowTabStop    =   True
+         BackgroundColor =   &c00000000
+         BevelStyle      =   0
+         Bold            =   False
+         ButtonStyle     =   0
+         Caption         =   "60"
+         CaptionAlignment=   3
+         CaptionDelta    =   0
+         CaptionPosition =   1
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         HasBackgroundColor=   False
+         Height          =   22
+         Icon            =   0
+         IconAlignment   =   0
+         IconDeltaX      =   0
+         IconDeltaY      =   0
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox1"
+         Italic          =   False
+         Left            =   53
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         MenuStyle       =   0
+         PanelIndex      =   0
+         Scope           =   0
+         TabIndex        =   8
+         TabPanelIndex   =   0
+         TextColor       =   &c00000000
+         Tooltip         =   ""
+         Top             =   87
+         Transparent     =   False
+         Underline       =   False
+         Value           =   False
+         Visible         =   True
+         Width           =   31
+         _mIndex         =   0
+         _mInitialParent =   ""
+         _mName          =   ""
+         _mPanelIndex    =   0
+      End
+      Begin DesktopBevelButton bb80
+         Active          =   False
+         AllowAutoDeactivate=   True
+         AllowFocus      =   True
+         AllowTabStop    =   True
+         BackgroundColor =   &c00000000
+         BevelStyle      =   0
+         Bold            =   False
+         ButtonStyle     =   0
+         Caption         =   "80"
+         CaptionAlignment=   3
+         CaptionDelta    =   0
+         CaptionPosition =   1
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         HasBackgroundColor=   False
+         Height          =   22
+         Icon            =   0
+         IconAlignment   =   0
+         IconDeltaX      =   0
+         IconDeltaY      =   0
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox1"
+         Italic          =   False
+         Left            =   18
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         MenuStyle       =   0
+         PanelIndex      =   0
+         Scope           =   0
+         TabIndex        =   9
+         TabPanelIndex   =   0
+         TextColor       =   &c00000000
+         Tooltip         =   ""
+         Top             =   87
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -478,7 +578,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   304
+      Left            =   260
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -491,7 +591,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   44
+      Top             =   24
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -528,7 +628,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   339
+      Left            =   295
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -541,7 +641,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   44
+      Top             =   24
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -578,7 +678,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   304
+      Left            =   260
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -591,7 +691,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   68
+      Top             =   48
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -628,7 +728,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   339
+      Left            =   295
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -641,7 +741,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   68
+      Top             =   48
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -678,7 +778,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   316
+      Left            =   260
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -691,7 +791,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   102
+      Top             =   82
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -728,7 +828,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   316
+      Left            =   260
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -741,7 +841,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   128
+      Top             =   108
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -778,7 +878,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   316
+      Left            =   260
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -791,7 +891,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   154
+      Top             =   134
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -828,7 +928,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   316
+      Left            =   260
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -841,7 +941,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   179
+      Top             =   159
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -878,7 +978,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   31
+      Left            =   8
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -891,7 +991,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   163
+      Top             =   154
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -928,7 +1028,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   103
+      Left            =   80
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -941,7 +1041,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   163
+      Top             =   154
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -978,7 +1078,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   175
+      Left            =   152
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -991,7 +1091,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   163
+      Top             =   154
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -1028,7 +1128,7 @@ Begin DesktopWindow formMainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   132
+      Left            =   109
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -1041,7 +1141,7 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   57
+      Top             =   37
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -1060,7 +1160,7 @@ Begin DesktopWindow formMainWindow
       FillColor       =   &cFF7E7900
       Height          =   12
       Index           =   -2147483648
-      Left            =   358
+      Left            =   311
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -1070,7 +1170,7 @@ Begin DesktopWindow formMainWindow
       TabIndex        =   13
       TabPanelIndex   =   0
       Tooltip         =   ""
-      Top             =   20
+      Top             =   7
       Transparent     =   False
       Visible         =   True
       Width           =   12
@@ -1085,7 +1185,7 @@ Begin DesktopWindow formMainWindow
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   240
+      Left            =   196
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -1101,7 +1201,7 @@ Begin DesktopWindow formMainWindow
       TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   154
+      Top             =   82
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -1115,7 +1215,7 @@ Begin DesktopWindow formMainWindow
       FillColor       =   &cFFFFFF
       Height          =   20
       Index           =   -2147483648
-      Left            =   260
+      Left            =   216
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -1125,7 +1225,7 @@ Begin DesktopWindow formMainWindow
       TabIndex        =   15
       TabPanelIndex   =   0
       Tooltip         =   ""
-      Top             =   176
+      Top             =   104
       Transparent     =   False
       Visible         =   True
       Width           =   20
@@ -1147,7 +1247,7 @@ Begin DesktopWindow formMainWindow
       Hint            =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   33
+      Left            =   10
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -1164,7 +1264,7 @@ Begin DesktopWindow formMainWindow
       TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   57
+      Top             =   37
       Transparent     =   False
       Underline       =   False
       ValidationMask  =   ""
@@ -1188,7 +1288,7 @@ Begin DesktopWindow formMainWindow
       Hint            =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   175
+      Left            =   152
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -1205,7 +1305,7 @@ Begin DesktopWindow formMainWindow
       TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   57
+      Top             =   37
       Transparent     =   False
       Underline       =   False
       ValidationMask  =   ""
@@ -1222,7 +1322,7 @@ Begin DesktopWindow formMainWindow
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   31
+      Left            =   8
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -1238,7 +1338,7 @@ Begin DesktopWindow formMainWindow
       TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   33
+      Top             =   13
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -1254,7 +1354,7 @@ Begin DesktopWindow formMainWindow
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   175
+      Left            =   152
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -1270,7 +1370,7 @@ Begin DesktopWindow formMainWindow
       TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   33
+      Top             =   13
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -1693,6 +1793,20 @@ End
 	#tag Event
 		Sub Pressed()
 		  SetFrequency(50300)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events bb60
+	#tag Event
+		Sub Pressed()
+		  SetFrequency(5125)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events bb80
+	#tag Event
+		Sub Pressed()
+		  SetFrequency(3650)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
