@@ -8,6 +8,7 @@
 				End
 				Begin SignProjectStep Sign
 				  DeveloperID=Developer ID Application: charles morgan (QMAS7T7E4L)
+				  macOSEntitlements={"App Sandbox":"False","Hardened Runtime":"True","Notarize":"True","UserEntitlements":""}
 				End
 			End
 			Begin BuildStepList Windows
