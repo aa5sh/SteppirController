@@ -1416,10 +1416,27 @@ Begin DesktopWindow formMainWindow
       TabPanelIndex   =   0
       XON             =   False
    End
+   Begin TCPSocket FlexRadio
+      Address         =   ""
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Port            =   0
+      Scope           =   0
+      TabPanelIndex   =   0
+   End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Closing()
+		  if FlexRadio.IsConnected then
+		    FlexRadio.Disconnect
+		  end if
+		  
+		End Sub
+	#tag EndEvent
+
 	#tag Event
 		Sub Opening()
 		  tsSteppirLast = new DateTime(1970,1,1,1,1,1)
@@ -1541,7 +1558,11 @@ End
 		  
 		  TrackFlag = Bitwise.ShiftRight((TrackFlag And 4),2) 
 		  
-		  
+		  if Frequency <> 0 and FlexFreq <> 0 then
+		    if abs(Frequency - FlexFreq) > 10 then
+		      SetFrequency(FlexFreq)
+		    end if
+		  end if
 		  
 		  UpdateColors
 		End Sub
@@ -1711,7 +1732,15 @@ End
 
 
 	#tag Property, Flags = &h0
+		CmdNbr As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Direction As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		FlexFreq As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -2013,7 +2042,15 @@ End
 		  else
 		    SteppirStatus.FillColor = color.Green
 		  end if
+		  Var FlexIP as String = Preferences.FlexRadio
 		  
+		  if FlexRadio.IsConnected = False and FlexIP <> "0.0.0.0" then
+		    if FlexRadio.IsConnected = false then
+		      FlexRadio.Address = FlexIP
+		      FlexRadio.Port = 4992
+		      FlexRadio.Connect
+		    end if
+		  end if
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2029,6 +2066,35 @@ End
 		  Timer.CallLater(10, addressOf myProcessingMethodSteppir) // 10 ms delay
 		  
 		  tsSteppirLast = datetime.Now
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events FlexRadio
+	#tag Event
+		Sub DataAvailable()
+		  Var S as STring = me.ReadAll
+		  'TextArea1.AddText(S + EndOfLine)
+		  
+		  if s.IndexOf("RF_frequency=") > 0 then
+		    Var Start as Integer = s.IndexOf("RF_frequency=") + len("RF_frequency=")
+		    Var EndSt as Integer = s.IndexOf(start," ")
+		    Var Freq as String = s.Middle(start,endst - start)
+		    Var FreqI as Integer = freq.ToDouble * 1000
+		    FlexFreq = FreqI
+		    
+		  end if
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Connected()
+		  CmdNbr = 1
+		  FlexRadio.Write("c" + CmdNbr.ToString + "|sub slice all" + EndOfLine) 
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Error(err As RuntimeException)
+		  'MsgBox("Error:" + err.Message + EndOfLine)
 		  
 		End Sub
 	#tag EndEvent

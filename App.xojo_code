@@ -19,9 +19,9 @@ Inherits DesktopApplication
 		    Preferences.Left = 1
 		  end if
 		  
-		  'if Preferences.hAntenna = nil then
-		  'Preferences.hAntenna = ""
-		  'end if
+		  if Preferences.FlexRadio = nil then
+		    Preferences.FlexRadio = "0.0.0.0"
+		  end if
 		  '
 		  'if Preferences.cAntenna = nil then
 		  'Preferences.cAntenna = ""

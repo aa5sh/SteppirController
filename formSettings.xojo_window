@@ -10,7 +10,8 @@ Begin DesktopWindow formSettings
    HasFullScreenButton=   False
    HasMaximizeButton=   True
    HasMinimizeButton=   True
-   Height          =   264
+   HasTitleBar     =   True
+   Height          =   340
    ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -287,7 +288,7 @@ Begin DesktopWindow formSettings
          LockRight       =   False
          LockTop         =   True
          Scope           =   0
-         SelectedRowIndex=   0
+         SelectedRowIndex=   -1
          TabIndex        =   6
          TabPanelIndex   =   0
          TabStop         =   True
@@ -378,7 +379,7 @@ Begin DesktopWindow formSettings
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   112
+      Left            =   115
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -390,7 +391,7 @@ Begin DesktopWindow formSettings
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   224
+      Top             =   287
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -409,7 +410,7 @@ Begin DesktopWindow formSettings
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   204
+      Left            =   207
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -421,7 +422,7 @@ Begin DesktopWindow formSettings
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   224
+      Top             =   287
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -436,6 +437,79 @@ Begin DesktopWindow formSettings
       Scope           =   0
       TabPanelIndex   =   0
    End
+   Begin DesktopLabel Label4
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   40
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Flex Address"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   231
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   90
+   End
+   Begin DesktopTextField FlexIP
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   22
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   142
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   229
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   204
+   End
 End
 #tag EndDesktopWindow
 
@@ -445,8 +519,8 @@ End
 		  SteppirIP.Text =  Preferences.SteppirIP
 		  SteppirPort.text =  Preferences.SteppirPort
 		  RadioGroup1.SelectedIndex = Preferences.SteppirComType
-		   for i as integer = 0 to DevicesPopupMenu.RowCount-1
-		     if DevicesPopupMenu.RowTextAt(i) = Preferences.SteppirSerialPort and Preferences.SteppirSerialPort <> "" then 
+		  for i as integer = 0 to DevicesPopupMenu.RowCount-1
+		    if DevicesPopupMenu.RowTextAt(i) = Preferences.SteppirSerialPort and Preferences.SteppirSerialPort <> "" then 
 		      DevicesPopupMenu.SelectedRowIndex = i 
 		      exit 
 		    end 
@@ -469,6 +543,8 @@ End
 		    cmbBaud.Enabled = True
 		    DevicesPopupMenu.Enabled = True
 		  end if
+		  
+		  FlexIP.Text = Preferences.FlexRadio
 		  
 		  formMainWindow.StartUP
 		End Sub
@@ -502,7 +578,7 @@ End
 		  Preferences.SteppirComType = RadioGroup1.SelectedIndex
 		  Preferences.SteppirSerialPort = DevicesPopupMenu.SelectedRowText
 		  Preferences.SteppirSerialBaud = cmbBaud.SelectedRowText
-		  
+		  Preferences.FlexRadio = FlexIP.Text
 		  
 		  if not Preferences.Save() then
 		    msgbox "Error Saving Preferences!"
@@ -542,6 +618,14 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="HasTitleBar"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
