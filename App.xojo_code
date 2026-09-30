@@ -22,6 +22,19 @@ Inherits DesktopApplication
 		  if Preferences.FlexRadio = nil then
 		    Preferences.FlexRadio = "0.0.0.0"
 		  end if
+
+		  // Band button frequencies are stored in kHz.
+		  // Apply defaults individually so older preference files gain new keys.
+		  If Preferences.Band80Frequency = Nil Then Preferences.Band80Frequency = 3650
+		  If Preferences.Band60Frequency = Nil Then Preferences.Band60Frequency = 5125
+		  If Preferences.Band40Frequency = Nil Then Preferences.Band40Frequency = 7150
+		  If Preferences.Band30Frequency = Nil Then Preferences.Band30Frequency = 10125
+		  If Preferences.Band20Frequency = Nil Then Preferences.Band20Frequency = 14200
+		  If Preferences.Band17Frequency = Nil Then Preferences.Band17Frequency = 18125
+		  If Preferences.Band15Frequency = Nil Then Preferences.Band15Frequency = 21200
+		  If Preferences.Band12Frequency = Nil Then Preferences.Band12Frequency = 24915
+		  If Preferences.Band10Frequency = Nil Then Preferences.Band10Frequency = 28300
+		  If Preferences.Band6Frequency = Nil Then Preferences.Band6Frequency = 50300
 		  '
 		  'if Preferences.cAntenna = nil then
 		  'Preferences.cAntenna = ""

@@ -14,12 +14,12 @@ Begin DesktopWindow formMainWindow
    Height          =   189
    ImplicitInstance=   True
    MacProcID       =   0
-   MaximumHeight   =   32000
-   MaximumWidth    =   32000
+   MaximumHeight   =   189
+   MaximumWidth    =   334
    MenuBar         =   1250209791
    MenuBarVisible  =   False
-   MinimumHeight   =   64
-   MinimumWidth    =   64
+   MinimumHeight   =   189
+   MinimumWidth    =   334
    Resizeable      =   True
    Title           =   "Steppir Controller"
    Type            =   0
@@ -1446,6 +1446,14 @@ End
 
 
 	#tag MenuHandler
+		Function FileBandSettings() As Boolean Handles FileBandSettings.Action
+		  formBandSettings.ShowModal
+
+		  Return True
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
 		Function FileQuit() As Boolean Handles FileQuit.Action
 		  if not Preferences.Save() then
 		    msgbox "Error Saving Preferences!"
@@ -1773,70 +1781,70 @@ End
 #tag Events bb40
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(7150)
+		  SetFrequency(Preferences.Band40Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb30
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(10125)
+		  SetFrequency(Preferences.Band30Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb20
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(14200)
+		  SetFrequency(Preferences.Band20Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb17
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(18125)
+		  SetFrequency(Preferences.Band17Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb15
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(21200)
+		  SetFrequency(Preferences.Band15Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb12
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(24915)
+		  SetFrequency(Preferences.Band12Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb10
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(28300)
+		  SetFrequency(Preferences.Band10Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb6
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(50300)
+		  SetFrequency(Preferences.Band6Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb60
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(5125)
+		  SetFrequency(Preferences.Band60Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bb80
 	#tag Event
 		Sub Pressed()
-		  SetFrequency(3650)
+		  SetFrequency(Preferences.Band80Frequency)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2380,6 +2388,22 @@ End
 		Visible=false
 		Group="Behavior"
 		InitialValue="-1"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="CmdNbr"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FlexFreq"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
 		Type="Integer"
 		EditorType=""
 	#tag EndViewProperty
