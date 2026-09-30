@@ -11,14 +11,14 @@ Begin DesktopWindow formBandSettings
    HasMaximizeButton=   False
    HasMinimizeButton=   False
    HasTitleBar     =   True
-   Height          =   370
+   Height          =   272
    ImplicitInstance=   True
    MacProcID       =   0
-   MaximumHeight   =   370
+   MaximumHeight   =   272
    MaximumWidth    =   360
    MenuBar         =   ""
    MenuBarVisible  =   False
-   MinimumHeight   =   370
+   MinimumHeight   =   272
    MinimumWidth    =   360
    Resizeable      =   False
    Title           =   "Band Settings"
@@ -69,6 +69,7 @@ Begin DesktopWindow formBandSettings
       ColumnCount     =   2
       ColumnWidths    =   "35%,65%"
       DefaultRowHeight=   -1
+      DropIndicatorVisible=   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -76,13 +77,15 @@ Begin DesktopWindow formBandSettings
       GridLineStyle   =   1
       HasBorder       =   True
       HasHeader       =   True
-      HeaderHeight    =   0
-      Height          =   268
+      HasHorizontalScrollbar=   False
+      HasVerticalScrollbar=   True
+      HeadingIndex    =   -1
+      Height          =   190
       Index           =   -2147483648
       InitialValue    =   ""
       Italic          =   False
       Left            =   20
-      LockBottom      =   True
+      LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   True
@@ -96,6 +99,7 @@ Begin DesktopWindow formBandSettings
       Tooltip         =   "Double-click a frequency to edit it."
       Top             =   44
       Transparent     =   False
+      Underline       =   False
       Visible         =   True
       Width           =   320
       _ScrollOffset   =   0
@@ -126,7 +130,7 @@ Begin DesktopWindow formBandSettings
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   330
+      Top             =   239
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -157,7 +161,7 @@ Begin DesktopWindow formBandSettings
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   330
+      Top             =   239
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -172,7 +176,7 @@ End
 		  BandList.HeaderAt(0) = "Band"
 		  BandList.HeaderAt(1) = "Frequency (MHz)"
 		  BandList.ColumnTypeAt(1) = DesktopListBox.CellTypes.TextField
-
+		  
 		  AddBand("80 m", Preferences.Band80Frequency)
 		  AddBand("60 m", Preferences.Band60Frequency)
 		  AddBand("40 m", Preferences.Band40Frequency)
@@ -186,6 +190,7 @@ End
 		End Sub
 	#tag EndEvent
 
+
 	#tag Method, Flags = &h21
 		Private Sub AddBand(bandName As String, frequencyKHz As Integer)
 		  BandList.AddRow(bandName, Format(frequencyKHz / 1000.0, "0.000"))
@@ -196,21 +201,23 @@ End
 		Private Function FrequencyAt(row As Integer) As Integer
 		  Var frequencyMHz As Double = BandList.CellTextAt(row, 1).ToDouble
 		  Var frequencyKHz As Integer = Round(frequencyMHz * 1000.0)
-
+		  
 		  If frequencyKHz <= 0 Or frequencyKHz > 60000 Then
 		    Raise New InvalidArgumentException
 		  End If
-
+		  
 		  Return frequencyKHz
 		End Function
 	#tag EndMethod
+
+
 #tag EndWindowCode
 
 #tag Events SaveButton
 	#tag Event
 		Sub Pressed()
 		  Var frequencies(9) As Integer
-
+		  
 		  Try
 		    For row As Integer = 0 To 9
 		      frequencies(row) = FrequencyAt(row)
@@ -219,7 +226,7 @@ End
 		    MessageBox("Enter a valid frequency greater than 0 and no more than 60 MHz for every band.")
 		    Return
 		  End Try
-
+		  
 		  Preferences.Band80Frequency = frequencies(0)
 		  Preferences.Band60Frequency = frequencies(1)
 		  Preferences.Band40Frequency = frequencies(2)
@@ -230,17 +237,16 @@ End
 		  Preferences.Band12Frequency = frequencies(7)
 		  Preferences.Band10Frequency = frequencies(8)
 		  Preferences.Band6Frequency = frequencies(9)
-
+		  
 		  If Not Preferences.Save Then
 		    MessageBox("The band settings could not be saved.")
 		    Return
 		  End If
-
+		  
 		  Close
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-
 #tag Events CancelButton
 	#tag Event
 		Sub Pressed()

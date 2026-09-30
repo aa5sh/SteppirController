@@ -14,12 +14,12 @@ Begin DesktopWindow formSettings
    Height          =   340
    ImplicitInstance=   True
    MacProcID       =   0
-   MaximumHeight   =   32000
-   MaximumWidth    =   32000
+   MaximumHeight   =   340
+   MaximumWidth    =   422
    MenuBar         =   ""
    MenuBarVisible  =   False
-   MinimumHeight   =   64
-   MinimumWidth    =   64
+   MinimumHeight   =   340
+   MinimumWidth    =   422
    Resizeable      =   True
    Title           =   "Settings"
    Type            =   0
