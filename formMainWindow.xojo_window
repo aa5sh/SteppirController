@@ -1424,6 +1424,14 @@ Begin DesktopWindow formMainWindow
       Scope           =   0
       TabPanelIndex   =   0
    End
+   Begin TCPSocket DXCommander
+      Address         =   ""
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Port            =   0
+      Scope           =   0
+      TabPanelIndex   =   0
+   End
 End
 #tag EndDesktopWindow
 
@@ -1433,6 +1441,7 @@ End
 		  if FlexRadio.IsConnected then
 		    FlexRadio.Disconnect
 		  end if
+		  If DXCommander.IsConnected Then DXCommander.Disconnect
 		  
 		End Sub
 	#tag EndEvent
@@ -1577,6 +1586,41 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub ProcessDXCommanderData()
+		  Const responseTag = "<CmdFreq:"
+		  Var tagStart As Integer = DXCommanderBuffer.IndexOf(responseTag)
+		  While tagStart >= 0
+		    Var lengthEnd As Integer = DXCommanderBuffer.IndexOf(tagStart, ">")
+		    If lengthEnd < 0 Then Return
+
+		    Var lengthText As String = DXCommanderBuffer.Middle(tagStart + Len(responseTag), lengthEnd - tagStart - Len(responseTag))
+		    Var valueLength As Integer = lengthText.ToInteger
+		    Var valueStart As Integer = lengthEnd + 1
+		    If valueLength <= 0 Or DXCommanderBuffer.Length < valueStart + valueLength Then Return
+
+		    Var frequencyText As String = DXCommanderBuffer.Middle(valueStart, valueLength).Trim
+		    DXCommanderBuffer = DXCommanderBuffer.Middle(valueStart + valueLength)
+
+		    // Commander installations can return Hz, kHz, MHz, or a dotted Hz display.
+		    Var numericFrequency As Double
+		    If frequencyText.CountFields(".") > 2 Then
+		      numericFrequency = frequencyText.ReplaceAll(".", "").ReplaceAll(",", "").ToDouble / 1000.0
+		    Else
+		      numericFrequency = frequencyText.ReplaceAll(",", "").ToDouble
+		      If numericFrequency >= 1000000.0 Then
+		        numericFrequency = numericFrequency / 1000.0
+		      ElseIf numericFrequency > 0.0 And numericFrequency < 1000.0 Then
+		        numericFrequency = numericFrequency * 1000.0
+		      End If
+		    End If
+
+		    If numericFrequency > 0.0 Then FlexFreq = Round(numericFrequency)
+		    tagStart = DXCommanderBuffer.IndexOf(responseTag)
+		  Wend
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub SetDirection(Dir as String)
 		  if Dir = Direction then
 		    exit
@@ -1635,6 +1679,9 @@ End
 		  if SteppirSocket1.IsConnected then
 		    SteppirSocket1.Disconnect
 		  end if
+		  If FlexRadio.IsConnected Then FlexRadio.Disconnect
+		  If DXCommander.IsConnected Then DXCommander.Disconnect
+		  DXCommanderBuffer = ""
 		End Sub
 	#tag EndMethod
 
@@ -1745,6 +1792,10 @@ End
 
 	#tag Property, Flags = &h0
 		Direction As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		DXCommanderBuffer As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -2050,15 +2101,28 @@ End
 		  else
 		    SteppirStatus.FillColor = color.Green
 		  end if
-		  Var FlexIP as String = Preferences.FlexRadio
+		  Var commanderIP As String = Preferences.DXCommanderIP
+		  If Preferences.UseDXCommander Then
+		    If commanderIP <> "" Then
+		      If DXCommander.IsConnected Then
+		        DXCommander.Write("<command:10>CmdGetFreq<parameters:0>")
+		      Else
+		        DXCommander.Address = commanderIP
+		        Var commanderPort As String = Preferences.DXCommanderPort
+		        DXCommander.Port = commanderPort.ToInteger
+		        If DXCommander.Port <= 0 Then DXCommander.Port = 52002
+		        DXCommander.Connect
+		      End If
+		    End If
+		  Else
+		    Var FlexIP as String = Preferences.FlexRadio
 		  
-		  if FlexRadio.IsConnected = False and FlexIP <> "0.0.0.0" then
-		    if FlexRadio.IsConnected = false then
+		    if FlexRadio.IsConnected = False and FlexIP <> "0.0.0.0" then
 		      FlexRadio.Address = FlexIP
 		      FlexRadio.Port = 4992
 		      FlexRadio.Connect
 		    end if
-		  end if
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2104,6 +2168,25 @@ End
 		Sub Error(err As RuntimeException)
 		  'MsgBox("Error:" + err.Message + EndOfLine)
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events DXCommander
+	#tag Event
+		Sub Connected()
+		  DXCommanderBuffer = ""
+		  Me.Write("<command:10>CmdGetFreq<parameters:0>")
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub DataAvailable()
+		  DXCommanderBuffer = DXCommanderBuffer + Me.ReadAll
+		  ProcessDXCommanderData
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Error(err As RuntimeException)
+		  // The status timer retries the connection without interrupting the operator.
 		End Sub
 	#tag EndEvent
 #tag EndEvents

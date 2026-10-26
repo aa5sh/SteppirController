@@ -22,6 +22,9 @@ Inherits DesktopApplication
 		  if Preferences.FlexRadio = nil then
 		    Preferences.FlexRadio = "0.0.0.0"
 		  end if
+		  If Preferences.DXCommanderIP = Nil Then Preferences.DXCommanderIP = ""
+		  If Preferences.DXCommanderPort = Nil Then Preferences.DXCommanderPort = "52002"
+		  If Preferences.UseDXCommander = Nil Then Preferences.UseDXCommander = False
 
 		  // Band button frequencies are stored in kHz.
 		  // Apply defaults individually so older preference files gain new keys.

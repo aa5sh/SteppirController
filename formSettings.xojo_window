@@ -11,14 +11,14 @@ Begin DesktopWindow formSettings
    HasMaximizeButton=   True
    HasMinimizeButton=   True
    HasTitleBar     =   True
-   Height          =   340
+   Height          =   450
    ImplicitInstance=   True
    MacProcID       =   0
-   MaximumHeight   =   340
+   MaximumHeight   =   450
    MaximumWidth    =   422
    MenuBar         =   ""
    MenuBarVisible  =   False
-   MinimumHeight   =   340
+   MinimumHeight   =   450
    MinimumWidth    =   422
    Resizeable      =   True
    Title           =   "Settings"
@@ -391,7 +391,7 @@ Begin DesktopWindow formSettings
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   287
+      Top             =   409
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -422,7 +422,7 @@ Begin DesktopWindow formSettings
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   287
+      Top             =   409
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -510,6 +510,215 @@ Begin DesktopWindow formSettings
       Visible         =   True
       Width           =   204
    End
+   Begin DesktopGroupBox DXCommanderGroup
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Caption         =   "DXLab Commander Server"
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   120
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   "Leave the IP address blank to disable DXLab Commander tracking."
+      Top             =   270
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   382
+      Begin DesktopLabel DXCommanderIPLabel
+         AllowAutoDeactivate=   True
+         Bold            =   False
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Height          =   20
+         Index           =   -2147483648
+         InitialParent   =   "DXCommanderGroup"
+         Italic          =   False
+         Left            =   40
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   0
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   "IP Address"
+         TextAlignment   =   0
+         TextColor       =   &c000000
+         Tooltip         =   ""
+         Top             =   298
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   90
+      End
+      Begin DesktopTextField DXCommanderIP
+         AllowAutoDeactivate=   True
+         AllowFocusRing  =   True
+         AllowSpellChecking=   False
+         AllowTabs       =   False
+         BackgroundColor =   &cFFFFFF
+         Bold            =   False
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Format          =   ""
+         HasBorder       =   True
+         Height          =   22
+         Hint            =   "Blank disables Commander"
+         Index           =   -2147483648
+         InitialParent   =   "DXCommanderGroup"
+         Italic          =   False
+         Left            =   142
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         MaximumCharactersAllowed=   0
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   0
+         TabIndex        =   1
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   ""
+         TextAlignment   =   0
+         TextColor       =   &c000000
+         Tooltip         =   ""
+         Top             =   296
+         Transparent     =   False
+         Underline       =   False
+         ValidationMask  =   ""
+         Visible         =   True
+         Width           =   204
+      End
+      Begin DesktopLabel DXCommanderPortLabel
+         AllowAutoDeactivate=   True
+         Bold            =   False
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Height          =   20
+         Index           =   -2147483648
+         InitialParent   =   "DXCommanderGroup"
+         Italic          =   False
+         Left            =   40
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   2
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   "Port"
+         TextAlignment   =   0
+         TextColor       =   &c000000
+         Tooltip         =   ""
+         Top             =   330
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   90
+      End
+      Begin DesktopTextField DXCommanderPort
+         AllowAutoDeactivate=   True
+         AllowFocusRing  =   True
+         AllowSpellChecking=   False
+         AllowTabs       =   False
+         BackgroundColor =   &cFFFFFF
+         Bold            =   False
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Format          =   ""
+         HasBorder       =   True
+         Height          =   22
+         Hint            =   "52002"
+         Index           =   -2147483648
+         InitialParent   =   "DXCommanderGroup"
+         Italic          =   False
+         Left            =   142
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         MaximumCharactersAllowed=   5
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   0
+         TabIndex        =   3
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   "52002"
+         TextAlignment   =   0
+         TextColor       =   &c000000
+         Tooltip         =   ""
+         Top             =   328
+         Transparent     =   False
+         Underline       =   False
+         ValidationMask  =   ""
+         Visible         =   True
+         Width           =   80
+      End
+      Begin DesktopCheckBox UseDXCommander
+         AllowAutoDeactivate=   True
+         Bold            =   False
+         Caption         =   "Use DXLab Commander for frequency tracking"
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Height          =   20
+         Index           =   -2147483648
+         InitialParent   =   "DXCommanderGroup"
+         Italic          =   False
+         Left            =   40
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   4
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Tooltip         =   "When unchecked, the Flex radio is used as the tracking source."
+         Top             =   358
+         Transparent     =   False
+         Underline       =   False
+         Value           =   False
+         Visible         =   True
+         VisualState     =   0
+         Width           =   306
+      End
+   End
 End
 #tag EndDesktopWindow
 
@@ -545,6 +754,11 @@ End
 		  end if
 		  
 		  FlexIP.Text = Preferences.FlexRadio
+		  DXCommanderIP.Text = Preferences.DXCommanderIP
+		  DXCommanderPort.Text = Preferences.DXCommanderPort
+		  UseDXCommander.Value = Preferences.UseDXCommander
+		  DXCommanderIP.Enabled = UseDXCommander.Value
+		  DXCommanderPort.Enabled = UseDXCommander.Value
 		  
 		  formMainWindow.StartUP
 		End Sub
@@ -570,6 +784,14 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag Events UseDXCommander
+	#tag Event
+		Sub ValueChanged()
+		  DXCommanderIP.Enabled = Me.Value
+		  DXCommanderPort.Enabled = Me.Value
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events ButtonSave
 	#tag Event
 		Sub Pressed()
@@ -579,6 +801,9 @@ End
 		  Preferences.SteppirSerialPort = DevicesPopupMenu.SelectedRowText
 		  Preferences.SteppirSerialBaud = cmbBaud.SelectedRowText
 		  Preferences.FlexRadio = FlexIP.Text
+		  Preferences.DXCommanderIP = DXCommanderIP.Text.Trim
+		  Preferences.DXCommanderPort = DXCommanderPort.Text.Trim
+		  Preferences.UseDXCommander = UseDXCommander.Value
 		  
 		  if not Preferences.Save() then
 		    msgbox "Error Saving Preferences!"
