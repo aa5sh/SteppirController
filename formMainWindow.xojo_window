@@ -1457,7 +1457,7 @@ End
 	#tag MenuHandler
 		Function FileBandSettings() As Boolean Handles FileBandSettings.Action
 		  formBandSettings.ShowModal
-
+		  
 		  Return True
 		End Function
 	#tag EndMenuHandler
@@ -1539,6 +1539,41 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub ProcessDXCommanderData()
+		  Const responseTag = "<CmdFreq:"
+		  Var tagStart As Integer = DXCommanderBuffer.IndexOf(responseTag)
+		  While tagStart >= 0
+		    Var lengthEnd As Integer = DXCommanderBuffer.IndexOf(tagStart, ">")
+		    If lengthEnd < 0 Then Return
+		    
+		    Var lengthText As String = DXCommanderBuffer.Middle(tagStart + Len(responseTag), lengthEnd - tagStart - Len(responseTag))
+		    Var valueLength As Integer = lengthText.ToInteger
+		    Var valueStart As Integer = lengthEnd + 1
+		    If valueLength <= 0 Or DXCommanderBuffer.Length < valueStart + valueLength Then Return
+		    
+		    Var frequencyText As String = DXCommanderBuffer.Middle(valueStart, valueLength).Trim
+		    DXCommanderBuffer = DXCommanderBuffer.Middle(valueStart + valueLength)
+		    
+		    // Commander installations can return Hz, kHz, MHz, or a dotted Hz display.
+		    Var numericFrequency As Double
+		    If frequencyText.CountFields(".") > 2 Then
+		      numericFrequency = frequencyText.ReplaceAll(".", "").ReplaceAll(",", "").ToDouble / 1000.0
+		    Else
+		      numericFrequency = frequencyText.ReplaceAll(",", "").ToDouble
+		      If numericFrequency >= 1000000.0 Then
+		        numericFrequency = numericFrequency / 1000.0
+		      ElseIf numericFrequency > 0.0 And numericFrequency < 1000.0 Then
+		        numericFrequency = numericFrequency * 1000.0
+		      End If
+		    End If
+		    
+		    If numericFrequency > 0.0 Then FlexFreq = Round(numericFrequency)
+		    tagStart = DXCommanderBuffer.IndexOf(responseTag)
+		  Wend
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub ProcessResponseSteppir(S As String)
 		  laststr = s
 		  Var Freq as Integer = Val("&h" + Mid(s,7,6) )/100
@@ -1582,41 +1617,6 @@ End
 		  end if
 		  
 		  UpdateColors
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub ProcessDXCommanderData()
-		  Const responseTag = "<CmdFreq:"
-		  Var tagStart As Integer = DXCommanderBuffer.IndexOf(responseTag)
-		  While tagStart >= 0
-		    Var lengthEnd As Integer = DXCommanderBuffer.IndexOf(tagStart, ">")
-		    If lengthEnd < 0 Then Return
-
-		    Var lengthText As String = DXCommanderBuffer.Middle(tagStart + Len(responseTag), lengthEnd - tagStart - Len(responseTag))
-		    Var valueLength As Integer = lengthText.ToInteger
-		    Var valueStart As Integer = lengthEnd + 1
-		    If valueLength <= 0 Or DXCommanderBuffer.Length < valueStart + valueLength Then Return
-
-		    Var frequencyText As String = DXCommanderBuffer.Middle(valueStart, valueLength).Trim
-		    DXCommanderBuffer = DXCommanderBuffer.Middle(valueStart + valueLength)
-
-		    // Commander installations can return Hz, kHz, MHz, or a dotted Hz display.
-		    Var numericFrequency As Double
-		    If frequencyText.CountFields(".") > 2 Then
-		      numericFrequency = frequencyText.ReplaceAll(".", "").ReplaceAll(",", "").ToDouble / 1000.0
-		    Else
-		      numericFrequency = frequencyText.ReplaceAll(",", "").ToDouble
-		      If numericFrequency >= 1000000.0 Then
-		        numericFrequency = numericFrequency / 1000.0
-		      ElseIf numericFrequency > 0.0 And numericFrequency < 1000.0 Then
-		        numericFrequency = numericFrequency * 1000.0
-		      End If
-		    End If
-
-		    If numericFrequency > 0.0 Then FlexFreq = Round(numericFrequency)
-		    tagStart = DXCommanderBuffer.IndexOf(responseTag)
-		  Wend
 		End Sub
 	#tag EndMethod
 
@@ -2116,7 +2116,7 @@ End
 		    End If
 		  Else
 		    Var FlexIP as String = Preferences.FlexRadio
-		  
+		    
 		    if FlexRadio.IsConnected = False and FlexIP <> "0.0.0.0" then
 		      FlexRadio.Address = FlexIP
 		      FlexRadio.Port = 4992
@@ -2488,6 +2488,14 @@ End
 		Group="Behavior"
 		InitialValue=""
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DXCommanderBuffer"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="String"
 		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
