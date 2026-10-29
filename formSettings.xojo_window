@@ -584,7 +584,7 @@ Begin DesktopWindow formSettings
          Format          =   ""
          HasBorder       =   True
          Height          =   22
-         Hint            =   "Blank disables Commander"
+         Hint            =   "127.0.0.1"
          Index           =   -2147483648
          InitialParent   =   "DXCommanderGroup"
          Italic          =   False
@@ -735,8 +735,12 @@ End
 		    end 
 		  next
 		  
+		  System.DebugLog("cmbBaud Row Count: " + cmbBaud.RowCount.ToString)
+		  System.DebugLog("Preferences.SteppirSerialBaud: " + Val(Preferences.SteppirSerialBaud).ToSTring)
+		  
+		  
 		  for i as integer = 0 to cmbBaud.RowCount - 1
-		    if cmbBaud.RowTextAt(i) = Preferences.SteppirSerialBaud and Preferences.SteppirSerialBaud <> "" then
+		    if Val(cmbBaud.RowTextAt(i)) = val(Preferences.SteppirSerialBaud) and val(Preferences.SteppirSerialBaud) <> 0 then
 		      cmbBaud.SelectedRowIndex = i
 		    end if
 		  next
@@ -781,14 +785,6 @@ End
 		    cmbBaud.Enabled = True
 		    DevicesPopupMenu.Enabled = True
 		  end if
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events UseDXCommander
-	#tag Event
-		Sub ValueChanged()
-		  DXCommanderIP.Enabled = Me.Value
-		  DXCommanderPort.Enabled = Me.Value
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -839,6 +835,14 @@ End
 		      DevicesPopupMenu.SelectedRowIndex = DevicesPopupMenu.LastRowIndex
 		    End If
 		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events UseDXCommander
+	#tag Event
+		Sub ValueChanged()
+		  DXCommanderIP.Enabled = Me.Value
+		  DXCommanderPort.Enabled = Me.Value
 		End Sub
 	#tag EndEvent
 #tag EndEvents

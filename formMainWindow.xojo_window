@@ -1448,6 +1448,7 @@ End
 
 	#tag Event
 		Sub Opening()
+		  me.Title = "Steppir Controller v"+app.MajorVersion.ToString + "." + app.MinorVersion.ToString + "." + app.BugVersion.ToString
 		  tsSteppirLast = new DateTime(1970,1,1,1,1,1)
 		  StartUP
 		End Sub
